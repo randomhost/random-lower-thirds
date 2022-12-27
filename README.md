@@ -1,12 +1,32 @@
-Random Lower Thirds
-===================
+# Random Lower Thirds
 
-This package contains a couple of files you can use to implement **lower thirds** with 
+<!-- TOC -->
+* [1. Purpose](#1-purpose)
+* [2. How it works](#2-how-it-works)
+* [3. Examples](#3-examples)
+  * [3.1. Timed Lower Third with Stream Deck, OBS Studio and scene transition](#31-timed-lower-third-with-stream-deck-obs-studio-and-scene-transition)
+* [4. Credits](#4-credits)
+* [5. License](#5-license)
+<!-- TOC -->
+
+## 1. Purpose
+
+This package contains a couple of files you can use to implement [lower thirds][1] with
 **randomized texts** in your streaming software.
 
-It should work with any streaming software that is capable of reading and rendering text from plain
-text files which applies to all of the most popular choices like **OBS Studio**, **Streamlabs OBS**,
-**XSplit** and **Elgato Game Capture**.
+It should work with **any** streaming software which is capable of reading and rendering text from
+plain text files, such as:
+
+* [Elgato Game Capture][2]
+* [OBS Studio][3]
+* [Streamlabs Desktop][4]
+* [XSplit][5]
+
+**Note:**  
+This package is currently targeted at **Windows** users. If you are streaming from a different
+operating system like Linux or macOS, there are probably better (native) tools at your disposal.
+
+## 2. How it works
 
 You will be working with the following files:
 
@@ -16,9 +36,7 @@ You will be working with the following files:
 | `lower-third.txt`       | Text file containing the randomly selected text    |
 | `lower-third-lines.txt` | Text file containing the text lines to choose from |
 
-## How it works
-
-When executed `lower-third.bat` selects a random line from `lower-third-lines.txt` (using the
+When executed, `lower-third.bat` selects a random line from `lower-third-lines.txt` (using the
 bundled `randline.bat` script) and writes it to `lower-third.txt`.
 
 `lower-third.txt` can then be added to your streaming software as a text source, ready to be used
@@ -33,22 +51,25 @@ been updated with new content which may cause the text on your lower third to up
 already being displayed.
 
 To avoid this, you can either add a **delay** between running `lower-third.bat` and showing your 
-lower third or you can try to run `lower-third.bat` **after** displaying your lower third. That way
+lower third, or you can try to run `lower-third.bat` **after** displaying your lower third. That way
 the text would be randomized off-screen, with the updated text being used the next time you show the
 lower third.
 
 Which method works best highly depends on the streaming software you use and how it handles text
 sources.
 
-## Examples
+## 3. Examples
 
 To give you an idea how you could use our script, this section contains some example setups.
 
-### Timed Lower Third with Stream Deck, SLOBS and scene transition
+### 3.1. Timed Lower Third with Stream Deck, OBS Studio and scene transition
 
-**Requirements:** Elgato Stream Deck, Streamlabs OBS
+**Requirements:** Elgato Stream Deck, OBS Studio
 
-**Streamlabs OBS Setup**
+_**Note:** In more recent versions of OBS Studio, you can achieve the same effect using a combination
+of **source groups** and **source show / hide transitions** without having to create a new scene._
+
+**OBS Studio Setup**
 
 1. **Create** a new **scene** and give it a suitable name (e.g. *"Cam + Lower Third"* ).
 2. **Add** a new **scene source** and choose the scene on top of which you would like to layer the
@@ -61,31 +82,34 @@ To give you an idea how you could use our script, this section contains some exa
     * **Luma Wipe** for switching from *"Cam"* to *"Cam + Lower Third"*
     * **Inverted** Luma Wipe for switching back from *"Cam + Lower Third"* to *"Cam"*
 
-Using scenes with custom "scene-to-scene" transitions (a feature which at the time of writing is
-exclusive to SLOBS when compared to OBS Studio) allows you to animate your lower thirds so they 
+Using scenes with custom "scene-to-scene" transitions allows you to animate your lower thirds so they 
 "roll" into and out of view.
 
 **Stream Deck Setup**
 
-1. Setup a **Multi Action** in Stream Deck.
-2. Add a **Streamlabs OBS: Scene** action which switches to your *"Cam + Lower Third"* scene.
+1. Set up a **Multi Action** in Stream Deck.
+2. Add an **OBS Studio: Scene** action which switches to your *"Cam + Lower Third"* scene.
 3. Add a **Stream Deck: Delay** action with a delay of about *6000* milliseconds so the average
    viewer has enough time to read the lower third without getting distracted.
-4. Add a **Streamlabs OBS: Scene** action which switches back to your *"Cam"* scene.
+4. Add an **OBS Studio: Scene** action which switches back to your *"Cam"* scene.
 5. Add a **System: Open** action which runs `lower-third.bat`. 
 
 Your setup should now look similar to this:
 
 ![Stream Deck](docs/streamdeck.png)
 
-Credits
--------
+## 4. Credits
 
-This package contains the 3rd party component **randline.bat** created by **Paul Houle**
-(http://paulhoule.com).
+This package contains the 3rd party component `randline.bat` created by [Paul Houle][6].
 
-License
--------
+## 5. License
 
-See LICENSE.txt for full license details.
+See [LICENSE.txt](LICENSE.txt) for full license details.
 
+
+[1]: https://en.wikipedia.org/wiki/Lower_third
+[2]: https://www.elgato.com
+[3]: https://obsproject.com
+[4]: https://streamlabs.com
+[5]: https://www.xsplit.com
+[6]: http://paulhoule.com
