@@ -2,11 +2,12 @@
 
 <!-- TOC -->
 * [1. Purpose](#1-purpose)
-* [2. How it works](#2-how-it-works)
-* [3. Examples](#3-examples)
-  * [3.1. Timed Lower Third with Stream Deck, OBS Studio and scene transition](#31-timed-lower-third-with-stream-deck-obs-studio-and-scene-transition)
-* [4. Credits](#4-credits)
-* [5. License](#5-license)
+* [2. Example](#2-example)
+* [3. How it works](#3-how-it-works)
+* [4. Examples](#4-examples)
+  * [4.1. Timed Lower Third with Stream Deck, OBS Studio and scene transition](#41-timed-lower-third-with-stream-deck-obs-studio-and-scene-transition)
+* [5. Credits](#5-credits)
+* [6. License](#6-license)
 <!-- TOC -->
 
 ## 1. Purpose
@@ -26,7 +27,11 @@ plain text files, such as:
 This package is currently targeted at **Windows** users. If you are streaming from a different
 operating system like Linux or macOS, there are probably better (native) tools at your disposal.
 
-## 2. How it works
+## 2. Example
+
+![Screenshots of 3 randomized lower thirds](docs/lower-third.jpg)
+
+## 3. How it works
 
 You will be working with the following files:
 
@@ -58,11 +63,11 @@ lower third.
 Which method works best highly depends on the streaming software you use and how it handles text
 sources.
 
-## 3. Examples
+## 4. Examples
 
 To give you an idea how you could use our script, this section contains some example setups.
 
-### 3.1. Timed Lower Third with Stream Deck, OBS Studio and scene transition
+### 4.1. Timed Lower Third with Stream Deck, OBS Studio and scene transition
 
 **Requirements:** Elgato Stream Deck, OBS Studio
 
@@ -98,11 +103,11 @@ Your setup should now look similar to this:
 
 ![Stream Deck](docs/streamdeck.png)
 
-## 4. Credits
+## 5. Credits
 
 This package contains the 3rd party component `randline.bat` created by [Paul Houle][6].
 
-## 5. License
+## 6. License
 
 See [LICENSE.txt](LICENSE.txt) for full license details.
 
